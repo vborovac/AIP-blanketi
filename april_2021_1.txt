@@ -1,0 +1,24 @@
+//april 2021 1. zadatak
+#include<stdio.h>
+void main(){
+    int N,Smax=0,Scifara,X,maxbroj,i,pom,C;
+    scanf("%d",&N);
+    for(i=0;i<N;i++){
+    Scifara=0;
+    scanf("%d",&X);
+    pom=X;
+    while(pom>0){
+        C=pom%10;
+        if(C%2!=0){
+            Scifara=Scifara+C;
+        }
+        pom=pom/10;
+        
+    }
+    if(Scifara>Smax){
+        maxbroj=X;
+        Smax=Scifara
+    }
+}
+printf("%d",maxbroj);
+}

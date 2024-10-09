@@ -1,0 +1,30 @@
+//jun 2 2020 2. zadatak
+#include <stdio.h>
+#include <math.h>
+void main(){
+    int f,brA=0,brB=0,brC=0;
+    float x,y;
+    char OB;
+    f=1; //jos nije uneta tacka koja ne pripada ni jednoj oblasti
+    while(f==1){
+        scanf("%f%f",&x,&y);
+        if(x>=3&&y>=3&&y<=-x+8){
+            OB='A';
+            brA++;
+        }
+        else if (pow(x-3,2)+pow(y-3,2)<=4){
+            OB='B';
+            brB++;
+        }
+        else if ( x>=1 && y >= 1 && x<=5 && y<=5){
+            OB='C';
+            brC++;
+        }
+        else{
+            OB='/';
+            f=0;
+        }
+        printf("%c",OB);
+    }
+    printf("%d %d %d",brA,brB,brC);
+}

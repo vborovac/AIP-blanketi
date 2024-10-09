@@ -1,0 +1,36 @@
+//Jun 2018 4.
+#include <stdio.h>
+int suma(int niz[],int n){
+    int i,sum=0;
+    for(i=0;i<n;i++)
+        sum+=niz[i];
+    return sum;
+}
+int main(){
+    FILE *mFajl = fopen("matrica.txt","r");
+    int A[50][50],pomocni[50],N,i,j,sumaMat=0;
+    fscanf(mFajl,"%d",&N);
+    for(i=0;i<N;i++)
+        for(j=0;j<N;j++)
+            fscanf(mFajl,"%d",&A[i][j]);
+    fclose(mFajl);
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++)
+            pomocni[j]=A[j][i];
+        A[N][i]=suma(pomocni,N);
+    }
+    for(i=0;i<N;i++)
+        A[i][N]=suma(A[i],N);
+    for(i=0;i<N;i++)
+        pomocni[i]=A[i][N];
+    for(i=0;i<N;i++)
+        for(j=0;j<N;j++)
+            sumaMat+=A[i][j];
+    A[N][N]=sumaMat;
+    for(i=0;i<N+1;i++){
+        for(j=0;j<N+1;j++)
+            printf("%d ",A[i][j]);
+        printf("\n");
+    }
+    return 0;
+}

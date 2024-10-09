@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main(){
+    int N,A[50],broj,i,pomocna,novBroj,k,cifra;
+    scanf("%d",&N);
+    for(i=0;i<N;i++) 
+        scanf("%d",&A[i]);
+    for(i=0;i<N;i++){
+        k=1;
+        pomocna=A[i];
+        novBroj=0;
+        while(pomocna>0){
+            k*=10;
+            pomocna/=10;
+        }
+        k/=10;
+        while(A[i]>0){
+            cifra=A[i]%10;
+            novBroj+=cifra*k;
+            k/=10;
+            A[i]/=10;
+        }
+        A[i]=novBroj;
+    }
+    for(i=0;i<N;i++)
+        printf("%d, ",A[i]);
+    return 0;
+}

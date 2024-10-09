@@ -1,0 +1,23 @@
+#include <stdio.h>
+int goran(int A[30],int N){
+    int i=0,max=-1;
+    while(max==-1&&i<N){
+        if(A[0]<A[i]){
+            max = i;
+            
+        }
+        else{
+        i++;
+        }
+    }
+    return max;
+}
+void main(){
+    int A[30],i,N,BOG;
+    scanf("%d",&N);
+    for(i=0;i<N;i++){
+        scanf("%d",&A[i]);
+    }
+    BOG = goran(A,N);
+    printf("%d",BOG);
+}

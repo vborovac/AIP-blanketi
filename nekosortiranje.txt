@@ -1,0 +1,40 @@
+#include<stdio.h>
+void UNOS(int A[50],int N){
+    int i,j,pom;
+    for(i=0;i<N;i++){
+    scanf("%d",&A[i]);
+    }
+}
+void PRIKAZ(int A[50],int N){
+    int i,j,pom;
+    for(i=0;i<N;i++){
+        printf("%d ",A[i]);
+    }
+}
+void SORTIRANJERASTUCE(int A[50], int N){
+    int i,j,pom;
+    for(i=0;i<N-1;i++){
+        for(j=i+1;j<N;j++){
+            if(A[j]<A[i]){
+                pom=A[i];
+                A[i]=A[j];
+                A[j]=pom;
+            }
+
+        }
+}
+}
+void main(){
+    int N,M;
+    int A[50], B[50];
+    scanf("%d",&N);
+    UNOS(A,N);
+    scanf("%d",&M);
+    UNOS(B,M);
+    PRIKAZ(A,N);
+    PRIKAZ(B,M);
+    SORTIRANJERASTUCE(A,N);
+    SORTIRANJERASTUCE(B,M);
+    PRIKAZ(A,N);
+    PRIKAZ(B,M);
+}

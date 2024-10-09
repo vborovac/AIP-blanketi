@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+int palindrome(char sentence[],char palindromes[][25]){
+    int i=0,j,k,l=0,counter=0,pal=0;
+    char helper[25];
+    while(sentence[i]!='\0'){
+        while(sentence[i]==' ')
+            i++;
+        while(sentence[i]!=' ' && sentence[i]!='\0'){
+            helper[l]=sentence[i];
+            l++;
+            i++;
+        }
+        helper[l]='\0';
+        k=l-1;
+        for(j=0;j<l/2;j++){
+            if(helper[j]!=helper[k]){
+                 counter++;
+            }
+            k--;
+        }
+        if(counter==0){
+            strcpy(palindromes[pal],helper);
+            pal++;
+        }    
+        l=0;
+        counter=0;
+        helper[l]='\0';
+    }
+    return pal;
+}
+int main(){
+    char string[50],palindromes[25][25];
+    gets(string);
+    int N = palindrome(string,palindromes);
+    int i;
+    for(i=0;i<N;i++)
+        printf("%d. %s\n", i+1,palindromes[i]);
+    return 0;
+}

@@ -1,0 +1,28 @@
+//2021 Decembar Drugi Zadatak
+#include <stdio.h>
+int main(){
+    float x,y;
+    int A,B,C,i,pripada=1;
+    while(pripada){
+        scanf("%f %f",&x,&y);
+        if(x>=2 && x<=4 && y>=2 && y<=4 && ((x-3)*(x-3)+(y-3)*(y-3))<=1){
+            i++;
+            printf("%d. Tacka (%f, %f) pripada oblasti A\n",i,x,y);
+            A++;
+        }
+        else if(x>=4 && x<=5 && y>=4 && y<=5 && y<=(9-x)){
+            i++;
+            printf("%d. Tacka (%f, %f) pripada oblasti B\n",i,x,y);
+            B++;
+        }
+        else if(x>=1 && x<=5 && y>=1 && y<=5){
+            i++;
+            printf("%d. Tacka (%f, %f) pripada oblasti C\n",i,x,y);
+            C++;
+        }
+        else
+            pripada=0;
+    }
+    printf("Oblasti A pripada %d Tacaka\nOblasti B pripada %d Tacaka\nOblasti C pripada %d Tacaka",A,B,C);
+    return 0;
+}

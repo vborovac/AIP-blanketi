@@ -1,0 +1,26 @@
+//decembar 2020 1. zadatak
+#include<stdio.h>
+void main(){
+    int M,N,C,i,S=0,pomocna,ZC;
+    scanf("%d",&M);
+    for(i=0;i<M;i++){
+    scanf("%d",&N);
+    pomocna=N;
+    ZC=0;
+    while(N>0){
+        C=N%10;
+        ZC=ZC+C; 
+        N=N/10;
+    }
+
+
+if(pomocna%ZC==0){
+    printf("%d",pomocna);
+}
+else{
+    S=S+pomocna;
+}
+
+}
+printf("%d",S);
+}

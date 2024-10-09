@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h>
+typedef struct{
+    float x,y;
+} tacka;
+int main(){
+    FILE *parcele;
+    tacka dL,dD,gD,gL;
+    float a,b,c,d,dijagDuza,dijagKraca,s1,s2,p1,p2,pU;
+    parcele = fopen("parcele.txt","r");
+    fscanf(parcele,"%f",&dL.x);
+    fscanf(parcele,"%f",&dL.y);
+    fscanf(parcele,"%f",&dD.x);
+    fscanf(parcele,"%f",&dD.y);
+    fscanf(parcele,"%f",&gL.x);
+    fscanf(parcele,"%f",&gL.y);
+    fscanf(parcele,"%f",&gD.x);
+    fscanf(parcele,"%f",&gD.y);
+    fclose(parcele);
+    a=sqrt(pow((dD.x-dL.x),2)+pow((dD.y-dL.y),2));
+    b=sqrt(pow((gD.x-dD.x),2)+pow((gD.y-dD.y),2));
+    c=sqrt(pow((gD.x-gL.x),2)+pow((gD.y-gL.y),2));
+    d=sqrt(pow((gL.x-dL.x),2)+pow((gL.y-dL.y),2));
+    dijagDuza=sqrt(pow((gD.x-dL.x),2)+pow((gD.y-dL.y),2));
+    dijagKraca=sqrt(pow((gL.x-dD.x),2)+pow((gL.y-dD.y),2));
+    s1=(a+d+dijagKraca)/2;
+    p1 = sqrt(s1*(s1-a)*(s1-d)*(s1-dijagKraca));
+    s2 = (b+c+dijagDuza)/2;
+    p2 = sqrt(s2*(s2-b)*(s2-c)*(s2-dijagDuza));
+    pU=(p1+p2)/100; //Pretpostavka da je u m^2
+    if(pU<100)
+        printf("Povrsina je: %.2fa",pU);
+    else
+        printf("Povrsina je: %.2fha",pU/100);
+    return 0;
+}

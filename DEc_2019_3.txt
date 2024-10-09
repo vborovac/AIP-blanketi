@@ -1,0 +1,24 @@
+#include <stdio.h>
+int main(){
+    char string[500];
+    int l=0,samoglasnici=0;
+    float proc;
+    fgets(string,500,stdin);
+    while(string[l]!='\0'){
+        switch(string[l]){
+            case 'A':{l++;samoglasnici++;break;}
+            case 'a':{l++;samoglasnici++;break;}
+            case 'E':{l++;samoglasnici++;break;}
+            case 'e':{l++;samoglasnici++;break;}
+            case 'I':{l++;samoglasnici++;break;}
+            case 'i':{l++;samoglasnici++;break;}
+            case 'O':{l++;samoglasnici++;break;}
+            case 'o':{l++;samoglasnici++;break;}
+            case 'U':{l++;samoglasnici++;break;}
+            case 'u':{l++;samoglasnici++;break;}
+            default:{l++;break;}
+        }
+    }
+    proc = (float)samoglasnici/(float)l*100;
+    printf("%.2f (%d/%d)",proc,samoglasnici,l);
+}

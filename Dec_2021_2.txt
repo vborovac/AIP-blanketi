@@ -1,0 +1,22 @@
+//decembar 2021 2. zadatak
+#include<stdio.h>
+void main(){
+    int N,S=0,j,i,A[30];
+    float prosek;
+    scanf("%d",&N);
+    for(i=0;i<N;i++)
+        scanf("%d",&A[i]);
+    for(i=0;i<N;i++)
+        S+=A[i];
+    prosek=S/N;
+    for(i=0;i<N;i++){
+        if(A[i]>prosek){
+            for(j=N;j>i;j--)
+                A[j]=A[j-1];
+            N++;
+            i++;
+        }
+    }
+    for(i=0;i<N;i++)
+        printf("%d",A[i]);
+}

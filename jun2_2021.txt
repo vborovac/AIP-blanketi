@@ -1,0 +1,32 @@
+#include<stdio.h>
+int fibo(int N){
+    if(N==1||N==2){
+        return 1;
+    }
+    else{
+        int i,a=1,b=1,c=0;
+        for(i=2;i<N;i++){
+            c=a+b;
+            a=b;
+            b=c;
+        }
+        return c;
+    }
+}
+void main(){
+    int A[50][50],N,X,i,j;
+    X=1;
+    scanf("%d",&N);
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            A[j][i]=fibo(X);
+            X++;
+        }
+    }
+    for(i=0;i<N;i++){
+       for(j=0;j<N;j++){
+           printf("%d ",A[i][j]);
+       }
+       printf("\n");
+    }
+}

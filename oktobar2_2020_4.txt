@@ -1,0 +1,38 @@
+#include<stdio.h>
+void main(){
+    FILE *f1 ,*f2;
+    int suma=0,A[30][30],i,j,N;
+    f1=fopen("ulaz.txt","r");
+    f2=fopen("izlaz.txt","w");
+    fscanf(f1,"%d",&N);
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            fscanf(f1,"%d",&A[i][j]);
+        }
+    }
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            if (i==j||i+j==N-1){
+                suma=suma+A[i][j];
+                
+            }
+        }
+    }
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            if (i==j||i+j==N-1){
+                A[i][j]=suma;
+            }
+            else{
+                A[i][j]=0;
+            }
+        }
+    }
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            fprintf(f2,"%d",A[i][j]);
+        }
+    }
+    fclose(f1);
+    fclose(f2);
+}

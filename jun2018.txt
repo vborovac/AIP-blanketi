@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char s1[30],s2[30];
+    int br=0,i,j;
+    
+    gets(s1);
+    gets(s2);
+    
+    if(strlen(s1)==strlen(s2)){
+        for(i=0;i<strlen(s1);i++){
+            for(j=0;j<strlen(s1);j++){
+                if(s1[i] == s2[j]){
+                    br++;
+                }
+            }
+        }
+        if(br==strlen(s1)){
+            printf("isti");
+        }
+        else{
+            printf("nisu");
+        }
+    }
+    
+    else 
+    printf("nisu");
+    
+    return 0;
+}

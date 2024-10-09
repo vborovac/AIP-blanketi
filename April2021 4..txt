@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main(){
+    FILE *R;
+    float A[50][50],pomocniNiz[50],pom;
+    int N,i,j,l,m;
+    scanf("%d",&N);
+    for(i=0;i<N;i++)
+        for(j=0;j<N;j++)
+            scanf("%f",&A[i][j]);
+    for(i=0;i<N;i+=2){
+        for(j=0;j<N;j++)
+            pomocniNiz[j]=A[j][i];
+        for(l=0;l<N-2;l+=2)
+                for(m=l+2;m<N;m+=2)
+                    if(pomocniNiz[m]>pomocniNiz[l]){
+                        pom=pomocniNiz[m];
+                        pomocniNiz[m]=pomocniNiz[l];
+                        pomocniNiz[l]=pom;
+                    }
+        for(j=0;j<N;j++)
+            A[j][i]=pomocniNiz[j];        
+    }
+    R = fopen("R.txt","w");
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++)
+            fprintf(R,"%.2f ",A[i][j]);
+        fprintf(R,"\n");
+    }
+    return 0;
+}
